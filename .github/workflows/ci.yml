@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+    tags:
+    - '[0-9]+.[0-9]+.[0-9]+-?*'
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - uses: actions/setup-dotnet@v1.3.0
+      with:
+        dotnet-version: '3.1.100'
+        source-url: https://nuget.pkg.github.com/thefringeninja/index.json
+
+    - name: build
+      run: dotnet build --configuration Release
+
+    - name: pack
+      run: dotnet pack --configuration Release --output ./packages
+
+    - name: push
+      run: dotnet nuget push packages/*.nupkg
+      if: github.event_name == 'push'
