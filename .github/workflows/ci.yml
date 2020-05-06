@@ -31,8 +31,6 @@ jobs:
 
     - name: push
       run: |
-        for f in ./packages/*.nupkg
-        do
-          curl -vX PUT -u "thefringeninja:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/thefringeninja/
-        done
+        dotnet tool restore
+        find ./packages -name "*.nupkg" | xargs -n1 dotnet tool run gpr -- push --api-key=${{ secrets.github_token }}
       if: github.event_name == 'push'
