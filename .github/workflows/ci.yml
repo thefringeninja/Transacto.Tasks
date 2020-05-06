@@ -24,15 +24,19 @@ jobs:
         dotnet-version: '3.1.201'
 
     - name: build
-      run: dotnet build --configuration Release
+      run: |
+        dotnet build --configuration Release
 
     - name: pack
-      run: dotnet pack --configuration Release --output ./packages
+      run: |
+        dotnet pack --configuration Release --output ./packages \
+          /p:NoWarn=NU5105 \
+          /p:RepositoryUrl=https://github.com/thefringeninja/Transacto.Tasks \
+          /p:RepositoryType=git
+
 
     - name: push
       run: |
-        for f in ./packages/*.nupkg
-        do
-          curl -vX PUT -u "thefringeninja:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/thefringeninja/
-        done
+        dotnet tool restore
+        find ./packages -name "*.nupkg" | xargs -n1 dotnet tool run gpr -- push --api-key=${{ secrets.github_token }}
       if: github.event_name == 'push'
