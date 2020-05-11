@@ -18,9 +18,11 @@
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.5.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.5.0" />
-        <PackageReference Include="Microsoft.Json.Schema" Version="1.1.2" />
-        <PackageReference Include="Microsoft.Json.Schema.ToDotNet" Version="1.1.2" />
         <PackageReference Include="MinVer" Version="2.2.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj" />
+        <ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema\Json.Schema.csproj" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="build\Transacto.Tasks.targets" PackagePath="build\" />

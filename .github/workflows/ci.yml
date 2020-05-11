@@ -15,9 +15,13 @@ jobs:
       fail-fast: false
     steps:
     - name: checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
       with:
-        fetch-depth: 0
+        submodules: true
+
+    - shell: bash
+      run: |
+        git fetch --prune --unshallow
 
     - uses: actions/setup-dotnet@v1
       with:
