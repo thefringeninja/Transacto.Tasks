@@ -1,0 +1,3 @@
+[submodule "src/Microsoft.JSchema"]
+	path = src/Microsoft.JSchema
+	url = git@github.com:thefringeninja/jschema.git
