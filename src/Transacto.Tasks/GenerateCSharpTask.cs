@@ -22,7 +22,8 @@ namespace Transacto.Tasks {
                     var inputFile = schemaFile.ToString();
                     var schema = SchemaReader.ReadSchema(File.ReadAllText(inputFile), inputFile);
                     var rootClassName = inputFile.Split(Path.DirectorySeparatorChar).Last().Split('.')[0];
-                    var namespaceName = $"{RootNamespace}.{inputFile.Remove(0, MSBuildProjectDirectory.Length + 1)}";
+                    var namespaceName =
+                        $"{RootNamespace}.{inputFile.Remove(0, MSBuildProjectDirectory.Length + 1).Replace('\\', '.').Replace('/', '.')}";
                     namespaceName = namespaceName.Substring(0,
                         namespaceName.Length - (rootClassName.Length + ".schema.json".Length + 1));
 
