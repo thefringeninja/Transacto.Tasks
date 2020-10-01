@@ -40,6 +40,12 @@ jobs:
           /p:RepositoryUrl=https://github.com/thefringeninja/Transacto.Tasks \
           /p:RepositoryType=git
 
+    - name: upload artifacts
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        path: ./packages/*.nupkg
+        name: nuget-packages
 
     - name: push
       run: |
