@@ -8,13 +8,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transacto.Tasks", "src\Transacto.Tasks\Transacto.Tasks.csproj", "{926696A7-4C38-4B1C-9637-26C38E0060AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ci", "ci", "{0BB6CE10-9E45-4B6E-825A-F6F5386D0D38}"
-ProjectSection(SolutionItems) = preProject
-	.github\workflows\ci.yml = .github\workflows\ci.yml
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json.Schema", "src\Microsoft.JSchema\src\Json.Schema\Json.Schema.csproj", "{FB876632-9239-4823-ABB1-097C8B749DBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json.Schema.ToDotNet", "src\Microsoft.JSchema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj", "{200A7087-94E0-4D0C-809E-158D11E77512}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{387B740E-475E-44D7-8B41-318ED69A0840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transacto.Tasks.Tests", "test\Transacto.Tasks.Tests\Transacto.Tasks.Tests.csproj", "{A955F0B6-0296-446C-889E-771E51F6C082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +69,23 @@ Global
 		{200A7087-94E0-4D0C-809E-158D11E77512}.Release|x64.Build.0 = Release|Any CPU
 		{200A7087-94E0-4D0C-809E-158D11E77512}.Release|x86.ActiveCfg = Release|Any CPU
 		{200A7087-94E0-4D0C-809E-158D11E77512}.Release|x86.Build.0 = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|x64.Build.0 = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Debug|x86.Build.0 = Debug|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|x64.ActiveCfg = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|x64.Build.0 = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|x86.ActiveCfg = Release|Any CPU
+		{A955F0B6-0296-446C-889E-771E51F6C082}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{926696A7-4C38-4B1C-9637-26C38E0060AE} = {9C7B99F9-8565-4782-9560-673EAFCAACDE}
 		{FB876632-9239-4823-ABB1-097C8B749DBC} = {9C7B99F9-8565-4782-9560-673EAFCAACDE}
 		{200A7087-94E0-4D0C-809E-158D11E77512} = {9C7B99F9-8565-4782-9560-673EAFCAACDE}
+		{A955F0B6-0296-446C-889E-771E51F6C082} = {387B740E-475E-44D7-8B41-318ED69A0840}
 	EndGlobalSection
 EndGlobal
