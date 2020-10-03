@@ -1,36 +1,70 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFrameworks>netcoreapp3.1;net5</TargetFrameworks>
-        <NoPackageAnalysis>true</NoPackageAnalysis>
-        <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
-        <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_PreparePackage</TargetsForTfmSpecificContentInPackage>
-        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    </PropertyGroup>
-    <ItemDefinitionGroup>
-        <PackageReference>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-    </ItemDefinitionGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.Build.Framework" Version="16.5.0" />
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0" />
-        <PackageReference Include="MinVer" Version="2.3.1" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj" />
-        <ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema\Json.Schema.csproj" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="build\Transacto.Tasks.targets" PackagePath="build\" />
-        <Content Include="buildMultiTargeting\Transacto.Tasks.targets" PackagePath="buildMultiTargeting\" />
-    </ItemGroup>
-    <Target Name="_PreparePackage" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
-        <ItemGroup>
-            <TfmSpecificPackageFile Include="$(OutputPath)*.dll">
-                <PackagePath>tools\$(TargetFramework)</PackagePath>
-            </TfmSpecificPackageFile>
-        </ItemGroup>
-    </Target>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net5</TargetFrameworks>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_PreparePackage</TargetsForTfmSpecificContentInPackage>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
+	<ItemDefinitionGroup>
+		<PackageReference>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Build.Framework" Version="16.5.0"/>
+		<PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.5.0"/>
+		<PackageReference Include="MinVer" Version="2.3.1"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj"/>
+		<ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema\Json.Schema.csproj"/>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="build\Transacto.Tasks.targets" PackagePath="build\"/>
+		<Content Include="buildMultiTargeting\Transacto.Tasks.targets" PackagePath="buildMultiTargeting\"/>
+	</ItemGroup>
+	<Target Name="_PreparePackage" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)*.dll">
+				<PackagePath>tools\$(TargetFramework)</PackagePath>
+			</TfmSpecificPackageFile>
+		</ItemGroup>
+	</Target>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net5</TargetFrameworks>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_PreparePackage</TargetsForTfmSpecificContentInPackage>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
+	<ItemDefinitionGroup>
+		<PackageReference>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Build.Framework" Version="16.7.0"/>
+		<PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.7.0"/>
+		<PackageReference Include="MinVer" Version="2.3.1"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema.ToDotNet\Json.Schema.ToDotNet.csproj"/>
+		<ProjectReference Include="..\Microsoft.JSchema\src\Json.Schema\Json.Schema.csproj"/>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="build\Transacto.Tasks.targets" PackagePath="build\"/>
+		<Content Include="buildMultiTargeting\Transacto.Tasks.targets" PackagePath="buildMultiTargeting\"/>
+	</ItemGroup>
+	<Target Name="_PreparePackage" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)*.dll">
+				<PackagePath>tools\$(TargetFramework)</PackagePath>
+			</TfmSpecificPackageFile>
+		</ItemGroup>
+	</Target>
 </Project>

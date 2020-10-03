@@ -11,8 +11,6 @@ on:
 jobs:
   continuous-integration:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -21,7 +19,7 @@ jobs:
 
     - shell: bash
       run: |
-        git fetch --prune --unshallow
+        git fetch --prune --unshallow --recurse-submodules=yes
 
     - name: Setup Dotnet 3.1
       uses: actions/setup-dotnet@v1
@@ -32,6 +30,10 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.100-rc.1.20452.10'
+
+    - name: Test
+      run: |
+        dotnet test ./test/Transacto.Tasks.Tests
 
     - name: pack
       run: |
