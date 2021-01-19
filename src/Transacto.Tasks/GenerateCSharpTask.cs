@@ -34,7 +34,7 @@ namespace Transacto.Tasks {
 						SchemaName = rootClassName
 					};
 
-					new DataModelGenerator(settings).Generate(schema);
+					var generated = new DataModelGenerator(settings).Generate(schema);
 				} catch (Exception ex) {
 					success = false;
 					Log.LogError($"Class generation for schema {schemaFile} failed: {ex}");
